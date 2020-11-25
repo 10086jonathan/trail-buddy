@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h1>Trails</h1>
+
+<ul>
+    <li>
+        <% if(user) { %>
+            <a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a>
+        <% } else { %>
+            <a href="/auth/google"><i class="material-icons left">vpn_key</i></a>
+            <% } %>
+    </li>
+</ul>
+
+<%- include('../partials/footer') %>
