@@ -2,6 +2,7 @@
 // const API_KEY = '200981438-4a2b6c0458afa38ee273068b3b6ba2d0';
 // const BASE_URL = 'https://www.hikingproject.com/data/get-trails';
 
+
 // // variables
 // let trailData;
 // let latText;
@@ -14,14 +15,14 @@
 
 // // event listeners
 // $cardsEl.on('click', 'article', handleClick);
-M.AutoInit();
 
-$(document).ready(function() {
-    $('select').formSelect();
-  });
-        
+const selectEls = document.querySelectorAll('select');
 
+init();
 
+function init() {
+    M.FormSelect.init(selectEls);
+};
 
 // // functions
 
