@@ -4,15 +4,19 @@ const Schema = mongoose.Schema;
 const trailSchema = new Schema({
     trailName: {
         type: String,
-        enum: ['Angels Landing', 'Four Pass Loop', 'Franconia Ridge Loop']    
+        // enum: ['Angels Landing', 'Four Pass Loop', 'Franconia Ridge Loop']    
     },
     location: {
         type: String,
-        enum: ['Springdale, UT', 'Snowmass Village, CO', 'Lincon, NH']
+        // enum: ['Springdale, UT', 'Snowmass Village, CO', 'Lincon, NH']
     },
     difficulty: {
         type: String,
-        enum: ['black', 'blueBlack', 'blue']
+        enum: ['Black', 'BlueBlack', 'Blue']
+    },
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
 }, {
     timestamps: true 
