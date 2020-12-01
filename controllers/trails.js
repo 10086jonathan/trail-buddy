@@ -16,9 +16,9 @@ function index(req, res) {
 };
 
 function show(req, res) {
-    Trail.findById(req.param.id)
+    Trail.findById(req.params.id)
     .populate('createdBy').populate('comments.createdBy').exec(function(err, trail) {
-        console.log(err);
+        console.log(err, trail);
         res.render('trails/show', { trail, user: req.user });
     });
 };

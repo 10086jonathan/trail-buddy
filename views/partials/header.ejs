@@ -1,16 +1,19 @@
-<header class="page-header">
-    <nav>
-        <div>
-            <a href="/" class="brand-logo">TrailBuddy</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <% if(user) { %>
-                    <li><a href="/trails">All Trails</a></li>
-                    <li><a href="/trails/new">Add a New Trail</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                <% } else { %>
-                    <li><a href="/auth/google">Login With Google</a></li>
-                <% } %>
-            </ul>
-        </div>
-    </nav>
-</header>
+    <header class="page-header green darken-3">
+        
+
+            <nav>
+                <div>
+                    <a href="/" class="brand-logo green darken-3">TrailBuddy</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down green darken-3">
+                        <% if(user) { %>
+                            <li><a href="/trails">All Trails</a></li>
+                            <li><a href="/trails/new">Add a New Trail</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                            <% } else { %>
+                                <li><a href="/auth/google">Login With Google</a></li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </nav>
+                
+            </header>

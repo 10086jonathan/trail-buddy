@@ -14,6 +14,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url('./imgs/homepage_background.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 main {
@@ -21,11 +24,13 @@ main {
     flex-direction: column;
 }
 
-/* main > section {
+main > section {
     flex-wrap: wrap;
-} */
+}
 
 .card {
+    display: flex;
+    flex-wrap: wrap;
     font-family: var(--brand-text);
     color: var(--primary-brand-color);
     text-transform: capitalize;
@@ -50,14 +55,13 @@ main {
     align-items: center;
 }
 
-/* header, footer {
+header, footer {
     display: flex;
     align-items: center;
-    color: var(--secondary-brand-color);
+    color: green;
     height: 65px;
     width: 100%;
-    background-color: var(--primary-brand-color);
-} */
+}
 
 /* header {
     font-family: var(--brand-text);

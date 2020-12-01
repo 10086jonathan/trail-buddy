@@ -5,9 +5,15 @@
 <body>
     <%- include('../partials/header') %>
 
-    <main class="container">
+    <main class="container white-text">
 
-        <h2>Comments</h2>
+        <h2><%= trail.trailName %></h2>
+        <div>Location: </div>
+        <div><%= trail.location %></div>
+        <div>Difficulty: </div>
+        <div><%= trail.difficulty %></div>
+
+        <h3>Comments</h3>
         <form method="POST" action="/trails/<%= trail._id %>/comments">
             <label>Comment:</label>
             <textarea name="content"></textarea>

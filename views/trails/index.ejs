@@ -9,8 +9,10 @@
         <% trails.forEach(function(trail) { %>
         <section id="cards" class="flex-ctr">
             <article class="card flex-ctr outline">
-                <h3><a href="/trails/<%= trail._id %>"><%= trail.trailName%></a> </h3>
+                <h4><a href="/trails/<%= trail._id %>"><%= trail.trailName%></a></h4>
+                <br>
                 <p><%= trail.difficulty %></p>
+                <br>
                 <p><%= trail.location %></p>
             </article>
             <% }) %>

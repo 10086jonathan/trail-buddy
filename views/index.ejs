@@ -9,8 +9,11 @@
 
 <main class="container">
   <h1>Welcome to TrailBuddy</h1>
-
-  <input type="text">
+  <form action="/trails">
+    <label for="searchTrail">Search by City, State or Zip Code</label>
+    <input type="text" name="searchTrail" id="searchTrail">
+    <input type="submit" value="Search">
+  </form>
 </main>
 
 <%- include('./partials/footer') %>
