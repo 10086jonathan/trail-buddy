@@ -7,6 +7,7 @@ const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const trailsRouter = require('./routes/trails');
+
 const app = express();
 
 app.set('view engine', 'ejs');
