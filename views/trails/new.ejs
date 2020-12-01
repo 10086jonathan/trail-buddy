@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="container">
+
+        
+        <div class="row">
+            <form action="/trails" class="col s12" method="POST">
+                <div class="row">
+
+                    <div class="input-field col s12">
+                      <textarea id="trailName" class="materialize-textarea" name="trailName"></textarea>
+                      <label for="trailname">Trail Name</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                      <textarea id="location" class="materialize-textarea" name="location"></textarea>
+                      <label for="location">Location</label>
+                    </div>
+                    
+                    <div class="input-field col s12">
+                        <select name="difficulty">
+                          <option value="" disabled selected>Choose Difficulty</option>
+                          <option value="Blue">Blue</option>
+                          <option value="BlueBlack">BlueBlack</option>
+                          <option value="Black">Black</option>
+                        </select>
+                        <label>Difficulty</label>
+                      </div>
+
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                      </button>
+                      <a href="/trails">Cancel</a>
+                  </div>
+                </form>
+              </div>
+
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
