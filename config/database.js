@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
-mongoose.connect(process.env.DATABASE_URI || 'mongodb://localhost/trail-buddy', {
+mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost/trail-buddy', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
