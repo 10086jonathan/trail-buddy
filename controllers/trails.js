@@ -2,6 +2,7 @@ const Trail = require('../models/trail');
 
 module.exports = {
     index,
+    show,
     new: newTrail,
     create
 };
@@ -12,6 +13,14 @@ function index(req, res) {
         res.render('trails/index', { trails, user: req.user });
     });
 };
+
+function show(req, res) {
+    Trail.findById(req.param.id)
+    .populate('createdBy').populate('comments.createdBy').exec(function(err, trail) {
+        console.log(trail);
+        res.render('trails/show', { flight })
+    })
+}
 
 function newTrail(req, res) {
     res.render('trails/new', { user: req.user });
