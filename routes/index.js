@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const indexCtrl = require('../controllers/index');
+const isAuthenticated = require('../utils/authorization');
 
 router.get('/auth/google', passport.authenticate(
     'google', {
@@ -18,8 +20,6 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-router.get('/', function(req, res) {
-    res.render('index');
-});
+router.get('/', indexCtrl.index);
 
 module.exports = router;
