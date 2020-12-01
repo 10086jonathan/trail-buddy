@@ -1,13 +1,34 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+    comment: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        default: 5
+    },
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+}, { 
+    timestamps: true
+});
+
 const trailSchema = new Schema({
     trailName: {
         type: String,
+        required: true
         // enum: ['Angels Landing', 'Four Pass Loop', 'Franconia Ridge Loop']    
     },
     location: {
         type: String,
+        required: true
         // enum: ['Springdale, UT', 'Snowmass Village, CO', 'Lincon, NH']
     },
     difficulty: {
@@ -17,7 +38,8 @@ const trailSchema = new Schema({
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    comments: [commentSchema]
 }, {
     timestamps: true 
 });
