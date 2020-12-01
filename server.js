@@ -7,6 +7,7 @@ const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const trailsRouter = require('./routes/trails');
+const commentsRouter = require('./routes/comments');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/trails', trailsRouter);
+app.use('/', commentsRouter);
 
 app.listen(port, function() {
     console.log(`express is listening on port:${port}`);

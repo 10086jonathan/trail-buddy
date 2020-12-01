@@ -4,7 +4,8 @@ module.exports = {
     index,
     show,
     new: newTrail,
-    create
+    create,
+    addComment
 };
 
 function index(req, res) {
@@ -17,10 +18,10 @@ function index(req, res) {
 function show(req, res) {
     Trail.findById(req.param.id)
     .populate('createdBy').populate('comments.createdBy').exec(function(err, trail) {
-        console.log(trail);
-        res.render('trails/show', { flight })
-    })
-}
+        console.log(err);
+        res.render('trails/show', { trail, user: req.user });
+    });
+};
 
 function newTrail(req, res) {
     res.render('trails/new', { user: req.user });
@@ -31,7 +32,7 @@ function create(req, res) {
     // trail.save(function(err) {
     //     if(err) return res.render('trails/new', { user: req.user });
     //     console.log(trail);
-    //     res.redirect('/trails', { user: req.user });
+    //     res.redirect('/trails/:id');
     // });
     req.body.createdBy = req.user._id;
     Trail.create(req.body, function(err, trail) {
@@ -40,3 +41,12 @@ function create(req, res) {
     });
 };
 
+function addComment(req, res) {
+    Trail.findById(req.params.id, function(err, trail) {
+        req.body.createdBy = req.user._id;
+        trail.commnets.push(req.body);
+        trail.save(function(err) {
+            res.redirect(`/trails/${trail._id}`);
+        });
+    });
+};
