@@ -6,24 +6,23 @@
     <%- include('../partials/header') %>
 
     <main class="container">
-
         
         <div class="row">
             <form action="/trails" class="col s12" method="POST">
                 <div class="row">
 
                     <div class="input-field col s12">
-                      <textarea id="trailName" class="materialize-textarea" name="trailName"></textarea>
+                      <textarea id="trailName" class="materialize-textarea white-text" name="trailName"></textarea>
                       <label for="trailname">Trail Name</label>
                     </div>
 
                     <div class="input-field col s12">
-                      <textarea id="location" class="materialize-textarea" name="location"></textarea>
+                      <textarea id="location" class="materialize-textarea white-text" name="location"></textarea>
                       <label for="location">Location</label>
                     </div>
                     
                     <div class="input-field col s12">
-                        <select name="difficulty">
+                        <select name="difficulty" class="white-text">
                           <option value="" disabled selected>Choose Difficulty</option>
                           <option value="Blue">Blue</option>
                           <option value="BlueBlack">BlueBlack</option>
