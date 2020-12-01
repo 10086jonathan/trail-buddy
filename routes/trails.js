@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const trailsCntrl = require('../controllers/trails');
+const trailsCtrl = require('../controllers/trails');
 const isAuthenticated = require('../utils/authorization');
 
 
-router.get('/', isAuthenticated, trailsCntrl.index);
-router.get('/new', isAuthenticated, trailsCntrl.new);
-router.get('/:id', isAuthenticated, trailsCntrl.show);
-router.post('/', isAuthenticated, trailsCntrl.create);
+router.get('/', isAuthenticated, trailsCtrl.index);
+router.get('/new', isAuthenticated, trailsCtrl.new);
+router.get('/:id', isAuthenticated, trailsCtrl.show);
+router.post('/', isAuthenticated, trailsCtrl.create);
+router.delete('/:id', isAuthenticated, trailsCtrl.delete);
+// router.get('/:id/edit', isAuthenticated, trailsCtrl.edit);
+// router.put('/:id', isAuthenticated, trailsCtrl.update);
+
 
 module.exports = router;

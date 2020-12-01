@@ -8,8 +8,8 @@
     <main class="container white-text">
 
         <h2><%= trail.trailName %></h2>
-        <div>Location: </div>
-        <div><%= trail.location %></div>
+        <label for="location">Location</label>
+        <div id="location"><%= trail.location %></div>
         <div>Difficulty: </div>
         <div><%= trail.difficulty %></div>
 
@@ -35,6 +35,7 @@
                     <th>Date</th>
                     <th>Comment</th>
                     <th>Rating</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +46,11 @@
                     <td><%= c.createdAt.toLocaleDateString() %></td>
                     <td><%= c.content %></td>
                     <td><%= c.rating %></td>
+                    <td>
+                        <form class="delete-form" action="/trails/?_method=DELETE" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 <% }); %>
                 <tr>
@@ -53,10 +59,14 @@
                 </tr>
             </tbody>
         </table>
+
         <% } else { %>
         <h5>No Reviews Yet</h5>
         <% } %>
 
+        <form class="delete-form" action="/trails/<%= trail._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
     </main>
 
     <%- include('../partials/footer') %>

@@ -1,5 +1,9 @@
 const Trail = require('../models/trail');
 
+module.exports = {
+    create
+};
+
 function create(req, res) {
     Trail.findById(req.params.id, function (err, trail) {
         console.log(err);
@@ -9,8 +13,4 @@ function create(req, res) {
             res.redirect(`/trails/${trail._id}`);
         });
     });
-}
-
-module.exports = {
-    create
 };

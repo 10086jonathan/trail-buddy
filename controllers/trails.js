@@ -5,7 +5,10 @@ module.exports = {
     show,
     new: newTrail,
     create,
-    addComment
+    addComment,
+    delete: deleteTrail,
+    // edit,
+    // update
 };
 
 function index(req, res) {
@@ -50,3 +53,26 @@ function addComment(req, res) {
         });
     });
 };
+
+function deleteTrail (req, res) {
+    Trail.findById(req.params.id, function(err, trail) {
+        trail.deleteOne(req.body, function(err) {
+            res.redirect(`/trails`)
+        });
+    });
+};
+
+// function edit(req, res) {
+//     Trail.findById(req.params.id, function(err, trail) {
+//         res.render('trails/edit', {
+//             trailId: req.params.id,
+//             todo: trail.(req.params.id)
+//         });
+//     });
+// };
+
+// function update(req, res) {
+//     req.body.done = false;
+//     Todo.updateOne(req.body, req.params.id);
+//     res.redirect('/todos');
+// };
