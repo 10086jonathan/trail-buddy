@@ -7,8 +7,8 @@ module.exports = {
     create,
     addComment,
     delete: deleteTrail,
-    // edit,
-    // update
+    edit,
+    update
 };
 
 function index(req, res) {
@@ -62,14 +62,23 @@ function deleteTrail (req, res) {
     });
 };
 
-// function edit(req, res) {
-//     Trail.findById(req.params.id, function(err, trail) {
-//         res.render('trails/edit', {
-//             trailId: req.params.id,
-//             todo: trail.(req.params.id)
-//         });
-//     });
-// };
+function edit(req, res) {
+    Trail.findById(req.params.id, function(err, trail) {
+        res.render('trails/edit', {
+            trailId: req.params.id,
+            trailName: trail.trailName,
+            location: trail.location,
+            difficulty: trail.difficulty,
+            user: req.user
+        });
+    })
+};
+function update(req, res) {
+    Trail.findByIdAndUpdate(req.params.id, req.body, function(err, trail) {
+        res.redirect(`/trails/${trail._id}`);
+    });
+};
+
 
 // function update(req, res) {
 //     req.body.done = false;
